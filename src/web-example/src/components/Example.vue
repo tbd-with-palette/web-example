@@ -15,9 +15,11 @@
 
         <h1 class="text-h2 font-weight-bold">Spectro Cloud Palette</h1>
         <RouterLink to="HelloWorld">Go to Hello World</RouterLink><br/>
-        <strong>Current route path:</strong> {{ $route.fullPath }}<br>
+        <strong>Current route path:</strong> {{ $route.fullPath }}<br/>
         <h2>{{ currentAnswer }}</h2>
-        <v-button @click="getAnswer"> Press Me Now </v-button>
+        <v-button @click="getAnswer"> Click Here </v-button><br/>
+        <v-button @click="doReset"> Reset </v-button>
+
 
       </div>
     </v-responsive>
@@ -34,6 +36,9 @@ export default {
     }
   },
   methods: {
+    doReset() {
+      this.currentAnswer = "Reset";
+    },
     getAnswer() {
       axios
         .get('http://code-dev.local/api/foo/bar?bang')
